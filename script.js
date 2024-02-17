@@ -3,20 +3,25 @@ const inputs = document.querySelectorAll('.input_text');
 const showError = document.querySelector('.progress-bar')
 const progressbar = document.querySelector('.progress-bar')
 const progressval = document.querySelector('.progress-val')
+const totalTasks = tasks.length;
+let completedTasks = 0;
 
 tasks.forEach((task, index) => {
     const checkbox = task.querySelector('.custom-checkbox');
     const input = inputs[index];
-    let proval = 0;
     checkbox.addEventListener('click', () => {
         const checkInput = [...inputs].every((input) =>{
            return input.value.trim() !== ''
         });
-        
         if (checkInput) {
             task.classList.toggle('completed');
-             proval += 33.33
-             progressval.style.width = proval + '%';
+            if (task.classList.contains('completed')) {
+                completedTasks++;
+            } else {
+                completedTasks--;
+            }
+            const progressWidth = (completedTasks / totalTasks) * 100;
+            progressval.style.width = progressWidth + '%';
         } else {
             showError.classList.add('showerror');
         }
