@@ -66,10 +66,12 @@ body {
   background-color: #e2e6f2;
   border-radius: 15px;
   margin-top: 20px;
+  overflow: hidden;
 }
 .progress-val {
+  transition: 1s ease-in;
   height: 100%;
-  width: 33%;
+  width: 0%;
   background-color: #002ea3;
   border-radius: 15px;
   font-weight: bold;
@@ -78,7 +80,6 @@ body {
   align-items: center;
   padding-left: 20px;
   color: #d9d9d9;
-  width: 0;
   overflow: hidden;
 }
 .error-lable {
